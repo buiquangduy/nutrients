@@ -1,0 +1,72 @@
+- hosts: localhost
+
+  vars_prompt:
+    - name: "confirm"
+      prompt: "This will install a NEW NutrientsDB application. Press ENTER to continue. Press Ctrl+C to abort"
+    - name: "current_env"
+      prompt: "Enter current environment (dev/testing/production)?"
+      default: "testing"
+      private: no
+    - name: "db_name"
+      prompt: "Enter database name?"
+      default: "nutrientsdb"
+      private: no
+    - name: "db_username"
+      prompt: "Enter database username?"
+      default: "root"
+      private: no
+    - name: "db_password"
+      prompt: "Enter database password?"
+      default: "root"
+      private: no
+
+  tasks:
+  - name: create .env file
+    copy:
+      src: .env.example
+      dest: .env
+
+  - name: update APP_ENV to .env
+    lineinfile: dest=./.env regexp='^APP_ENV=' line='APP_ENV={{ current_env }}'
+
+  - name: update database name to .env
+    lineinfile: dest=./.env regexp='^DB_DATABASE=' line='DB_DATABASE={{ db_name }}'
+
+  - name: update database username to .env
+    lineinfile: dest=./.env regexp='^DB_USERNAME=' line='DB_USERNAME={{ db_username }}'
+
+  - name: update database password to .env
+    lineinfile: dest=./.env regexp='^DB_PASSWORD=' line='DB_PASSWORD={{ db_password }}'
+
+  - name: Set writeable permission to storage directory
+    shell: chmod -R 777 ./storage
+
+  - name: Set writeable permission to bootstrap/cache directory
+    shell: chmod -R 777 ./bootstrap/cache/
+
+  - name: composer install
+    composer:
+      command: install
+      working_dir: ./
+      no_dev: false
+      optimize_autoloader: yes
+
+  - name: npm install
+    shell: npm i
+
+  - name: generate application key
+    shell: php artisan key:generate
+
+  - name: migrate database schema
+    shell: php artisan migrate
+
+  - name: seed database
+    shell: php artisan db:seed
+    when: current_env != "production"
+
+  - name: seed database production
+      shell: php artisan db:seed --class=SeederForProduction
+      when: current_env == "production"
+
+  - name: npm build
+    shell: npm run {{ current_env }}

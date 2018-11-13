@@ -1,0 +1,99 @@
+.form-login {
+  padding-top: 55px;
+  padding-bottom: 50px;
+
+  .box-input {
+    position: relative;
+  }
+
+  @include media-breakpoint-down(xs) {
+    padding-top: 7%;
+  }
+
+  .form-logo {
+    @include media-breakpoint-down(xs) {
+      width: 40%;
+
+      img {
+        max-width: 100%;
+        margin-left: 15px;
+      }
+    }
+
+    img {
+      @include media-breakpoint-up(sm) {
+        max-width: 212px;
+      }
+    }
+  }
+
+  .text-description {
+    font-size: 1.5em;
+    color: $blue-darker;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include media-breakpoint-down(xs) {
+      width: 60%;
+      font-size: 3.7vw;
+    }
+
+    p {
+      @include media-breakpoint-up(md) {
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+
+  .text-danger {
+    font-size: 3.5vw;
+  }
+
+  .form-main {
+    margin: 50px auto 0;
+    width: 68%;
+    font-size: 1.5em;
+
+    @include media-breakpoint-down(xs) {
+      margin-top: 3%;
+    }
+  }
+
+  .forget-password-button {
+    text-decoration: underline;
+    color: $blue-darker;
+
+    @include media-breakpoint-down(xs) {
+      font-size: 3.7vw;
+    }
+  }
+}
+
+.btn-login-register {
+  font-size: 1em;
+  width: 100%;
+  background-color: $white;
+  line-height: 13vw;
+  border-radius: 65px;
+  border: 2px solid $blue-darker;
+  color: $blue-darker;
+
+  @include media-breakpoint-down(xs) {
+    font-size: 3.7vw;
+  }
+
+  @include media-breakpoint-up(md) {
+    line-height: 2;
+    max-width: 250px;
+  }
+}
+
+.banner-login {
+  img {
+    @include media-breakpoint-only(md) {
+      height: 250px;
+    }
+  }
+}

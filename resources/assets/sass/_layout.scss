@@ -1,0 +1,134 @@
+.banner-common {
+  height: 165px;
+  width: 100%;
+  display: block;
+  border-bottom: 4px solid $blue-dark;
+  background-image: url("/images/banner_common.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0;
+
+  @include media-breakpoint-up(xl) {
+    height: 260px;
+  }
+
+  @include media-breakpoint-down(xs) {
+    border-bottom: 2px solid $blue-dark;
+  }
+
+  .silver-member {
+    background-color: $white;
+    padding: 3px 13px;
+    font-size: 1.6vw;
+    border-radius: 10px;
+    border:1px solid $black;
+    color: $black;
+    display: inline-block;
+
+    @include media-breakpoint-down(xs) {
+      font-size: 3.5vw;
+    }
+
+    @include media-breakpoint-down(xl) {
+      font-size: 20px;
+    }
+  }
+
+  .content {
+    padding-top: 20px;
+    position: relative;
+
+    @include media-breakpoint-down(xs) {
+      padding-top: 40px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      padding-top: 60px;
+    }
+
+    .box-left {
+      padding-left: 30px;
+
+      @include media-breakpoint-down(xs) {
+        padding-left: 15px;
+      }
+
+      p {
+        margin-bottom: 0;
+        color: $black;
+
+        &:nth-of-type(1) {
+          text-indent: inherit;
+          font-size: 3.2vw;
+          @include media-breakpoint-down(xs) {
+            font-size: 5vw;
+          }
+
+          @include media-breakpoint-up(sm) {
+            font-size: 30px;
+          }
+
+          @include media-breakpoint-up(xl) {
+            font-size: 40px;
+          }
+        }
+
+        &:nth-of-type(2) {
+          font-size: 2.15vw;
+          line-height: 1;
+          display: inline-block;
+          margin-left: -10px;
+
+          @include media-breakpoint-down(xs) {
+            font-size: 4.5vw;
+            line-height: 1;
+          }
+
+          @include media-breakpoint-up(sm) {
+            font-size: 25px;
+          }
+
+          @include media-breakpoint-up(xl) {
+            font-size: 26px;
+          }
+        }
+      }
+    }
+
+    .box-right {
+      position: absolute;
+      right: 30px;
+      bottom: 0;
+
+      @include media-breakpoint-down(xs) {
+        bottom: -3vh;
+      }
+
+      .btn-survey-mode {
+        background-color: $white;
+        padding: 5% 13%;
+        font-size: 2.8vw;
+        border: 2px solid $blue-dark;
+        border-radius: 10px;
+        color: $text-color;
+        float: right;
+
+        @include media-breakpoint-up(md) {
+          font-size: 1.7em;
+          padding: 13px 31px;
+        }
+
+        @include media-breakpoint-down(xs) {
+          font-size: 4vw;
+          padding: 6px 12px;
+        }
+
+        @include media-breakpoint-up(xl) {
+          width: 230px;
+          height: 70px;
+          font-size: 27px;
+        }
+      }
+    }
+  }
+}

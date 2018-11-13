@@ -1,0 +1,280 @@
+.screen-title {
+  color: $gray-900;
+  font-weight: 900;
+  opacity: 0.95;
+  margin-top: 25px;
+
+  @include media-breakpoint-down(xs) {
+    margin-top: 20px;
+  }
+}
+
+// Register form
+.register-form {
+  width: 100%;
+
+  .form-control {
+    border-radius: unset;
+
+    &:focus {
+      box-shadow: unset;
+    }
+
+    @include media-breakpoint-down(sm) {
+      line-height: 0.5;
+    }
+  }
+
+  .login-info {
+    @include media-breakpoint-down(sm) {
+      margin: 10px 0px 15px 0px;
+    }
+  }
+
+  .span-blue-darker {
+    color: $blue-darker;
+  }
+
+  .form-center {
+    margin: auto;
+    text-align: center;
+
+    p {
+      margin-top: 5px;
+    }
+  }
+
+  .btn-login-register {
+    width: 80%;
+    color: $gray-900;
+    border-color: $red;
+    font-size: 22px;
+
+    @include media-breakpoint-down(sm) {
+      line-height: 35px;
+      border-radius: 15px;
+      font-size: 18px;
+    }
+
+    @include media-breakpoint-up(sm) {
+      line-height: 55px;
+      border-radius: 15px;
+    }
+
+    &:hover {
+      border-color: $blue-dark;
+      box-shadow: 1px 1px 8px 2px $light-gray;
+      transition: 0.5s;
+    }
+  }
+
+  label {
+    color: $blue-darker;
+    font-weight: 600;
+  }
+
+  .default-selected {
+    color: $spicy-pink
+  }
+
+  select {
+    color: $gray-900;
+    border-color: $blue-darker;
+
+    .default-selected {
+      color: $spicy-pink
+    }
+
+    option {
+      color: $gray-900;
+    }
+
+    &::selection {
+      color: $gray-900;
+    }
+  }
+
+  input {
+    color: $gray-900;
+    border-color: $blue-darker;
+
+    &:focus {
+      color: $gray-900;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $spicy-pink;
+      line-height: 1;
+    }
+    &:-moz-placeholder {
+      color: $spicy-pink;
+      line-height: 1;
+    }
+    &::-moz-placeholder {
+      color: $spicy-pink;
+      line-height: 1;
+    }
+    &:-ms-input-placeholder {
+      color: $spicy-pink;
+      line-height: 1;
+    }
+  }
+
+  .login-profile-form {
+    margin-top: 35px;
+  }
+
+  .agreeError {
+    font-size: 14px;
+    @include media-breakpoint-down(md) {
+      font-size: 12px;
+    }
+  }
+
+  .back-home {
+    a {
+      color: $blue-darker;
+    }
+  }
+
+  .successModalFooter {
+    height: 42px;
+    margin-bottom: 15px;
+    .btn {
+      line-height:1;
+    }
+  }
+
+  .modalSuccess {
+    .modal-content {
+      margin: 0 auto;
+      width: 80%;
+    }
+    .messageSuccess {
+      margin-top: 1rem;
+    }
+  }
+
+  button {
+    margin-top: 20px;
+  }
+}
+
+// Custom-checkbox-radio
+.custom-checkbox-radio {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  line-height: 15px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 12px;
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+
+    &:checked {
+      & ~ .checkmark, ~ .radio-checkmark {
+        background-color: $white;
+
+        &:after {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    input {
+      & ~ .checkmark, .radio-checkmark {
+        background-color: $white;
+      }
+    }
+  }
+
+  .checkmark {
+    position: absolute;
+    top: -4px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: $white;
+    border: 2px solid $blue-darker;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 6px;
+      top: 3px;
+      width: 5px;
+      height: 10px;
+      border: solid $blue-darker;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+
+  .sex:focus ~ .radio-checkmark {
+    outline: 1px solid $blue;
+  }
+
+  .sex {
+    pointer-events: none;
+  }
+
+  .radio-checkmark {
+    position: absolute;
+    top: -3px;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: $white;
+    border: 2px solid $spicy-pink;
+    border-radius: 50%;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 2px;
+      top: 2px;
+      width: 10px;
+      height: 10px;
+      background-color: $blue-darker;
+      border-radius: 50%;
+    }
+
+    &:active {
+      outline: 1px solid $blue-darker;
+    }
+    &:hover {
+      outline: 1px solid $blue-darker;
+    }
+    &:focus {
+      outline: 1px solid $blue-darker;
+    }
+    &:visited {
+      outline: 1px solid $blue-darker;
+    }
+  }
+
+  .radio-sex {
+    color: $spicy-pink;
+    font-size: 18px;
+    margin-left: -10px;
+    margin-right: 20px;
+    font-weight: 500;
+  }
+}

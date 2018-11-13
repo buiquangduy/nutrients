@@ -1,0 +1,111 @@
+.navbar {
+  align-items: left;
+  border-bottom: 6px solid $blue;
+  position: relative;
+
+  #nav_collapse {
+    margin-top: 15px;
+  }
+
+  @include media-breakpoint-down(xs) {
+    border-bottom: 2px solid $blue;
+  }
+
+  .navbar-nav {
+    .nav-link {
+      color: $blue-darker;
+    }
+
+    .nav-item {
+      @include media-breakpoint-down(xs) {
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("/images/icon_toggle.png");
+  }
+
+  .navbar-toggler {
+    border: none;
+    outline: 0;
+    border-left: 1px solid $pink;
+    border-radius: 0;
+    padding-right: 0;
+
+    .navbar-toggler-icon {
+      width: 45px;
+      height: 40px;
+
+      @include media-breakpoint-down(xs) {
+        max-width: 30px;
+        height: 30px;
+      }
+    }
+
+    .text-menu {
+      margin-bottom: 0;
+      margin-top: 10px;
+      font-size: 0.75em;
+
+      @include media-breakpoint-down(xs) {
+        font-size: 0.6em;
+        margin-top: 5px;
+      }
+    }
+
+    @include media-breakpoint-down(xs) {
+      padding-top: 0;
+    }
+  }
+
+  .box-head-right {
+    display: inherit;
+
+    .point {
+      margin-right: 10px;
+      padding-top: 15px;
+
+      p {
+        margin-bottom: 0;
+      }
+
+      @include media-breakpoint-down(xs) {
+        padding-top: 5px;
+        font-size: 0.8em;
+      }
+
+      @include media-breakpoint-up(md) {
+        position: absolute;
+        right: 15px;
+      }
+
+    }
+  }
+
+  .head-logo {
+    max-width: 110px;
+
+    @include media-breakpoint-down(xs) {
+      max-width: 65px;
+    }
+  }
+}
+
+.language-selector {
+  img {
+    max-width: 30px
+  }
+}
+
+.logo-language {
+  margin-top: 15px;
+  position: absolute;
+  right: 20px;
+  text-align: right;
+
+  @include media-breakpoint-down(xs) {
+    margin-top: 5px;
+  }
+}

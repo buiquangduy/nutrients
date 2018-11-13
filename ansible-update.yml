@@ -1,0 +1,32 @@
+- hosts: localhost
+
+  vars_prompt:
+    - name: "current_env"
+      prompt: "Enter current environment (dev/testing/production)?"
+      default: "testing"
+      private: no
+
+  tasks:
+  - name: composer install
+    composer:
+      command: install
+      working_dir: ./
+      no_dev: false
+      optimize_autoloader: yes
+
+  - name: reset database for production
+    shell: php artisan migrate:reset
+    when: current_env == "production"
+
+  - name: migrate database schema
+    shell: php artisan migrate
+
+  - name: seed database production
+    shell: php artisan db:seed --class=SeederForProduction
+    when: current_env == "production"
+
+  - name: npm install
+    shell: npm i
+
+  - name: npm build
+    shell: npm run {{ current_env }}

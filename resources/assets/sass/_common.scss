@@ -1,0 +1,377 @@
+@mixin checkmark-checked() {
+  background-color: $blue;
+
+  &:after {
+    display: block;
+  }
+}
+
+#nprogress {
+  .bar {
+    height: 3px;
+  }
+}
+
+.label-login {
+  color: $blue;
+
+  @include media-breakpoint-down(xs) {
+    font-size: 5vw;
+  }
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: 0;
+    line-height: 1;
+  }
+}
+
+.input-login {
+  border: none;
+  border-bottom: 1px solid $blue-dark;
+  border-radius: 0;
+  font-size: 1em;
+  color: $gray-500;
+  padding-left: 0;
+
+  &:focus {
+    box-shadow: none;
+    border-bottom: 2px solid $blue-dark;
+  }
+
+  @include media-breakpoint-down(xs) {
+    font-size: 3.7vw;
+  }
+
+  @include media-breakpoint-up(md) {
+    padding: 0;
+  }
+}
+
+.icon-check-success {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 7vw;
+  color: $blue-darker;
+
+  @include media-breakpoint-up(md) {
+    font-size: 38px;
+  }
+
+  @include media-breakpoint-down(xs) {
+    top: 3px;
+  }
+}
+
+.breadcrumb {
+  background-color: $white;
+  position: relative;
+
+  a {
+    color: $black;
+    margin-right: 3px;
+  }
+
+  .breadcrumb-item {
+    padding-left: 0;
+    padding-top: 10px;
+
+    &:last-child {
+      a {
+        font-weight: bold;
+      }
+    }
+
+    &:before {
+      content: ""
+    }
+
+    @include media-breakpoint-down(xs) {
+      font-size: 0.8em;
+    }
+  }
+
+  .item-last {
+    font-weight: bold;
+  }
+}
+
+.breadcrumb-survey {
+  padding-left: 0;
+}
+
+.btn-reset {
+  position: absolute;
+  right: 15px;
+  background-color: $blue-dark;
+  line-height: 30px;
+  color: $white;
+  border-radius: 20px;
+  font-size: 1.3em;
+
+  @include media-breakpoint-down(xs) {
+    line-height: 20px;
+    font-size: 0.8em;
+    right: -5px;
+  }
+
+  img {
+    max-width: 22px;
+    margin-right: 10px;
+    margin-top: -5px;
+
+    @include media-breakpoint-down(xs) {
+      max-width: 15px;
+      margin-right: 10px;
+      margin-top: -5px;
+    }
+  }
+}
+
+.text-error {
+  color: $red;
+  font-size: 20px;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 16px;
+  }
+
+  @include media-breakpoint-down(xs) {
+    font-size: 3vw;
+  }
+}
+
+.container-no-answer {
+  margin-top: 10px;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+
+    &:checked ~ .checkmark {
+      @include checkmark-checked();
+    }
+
+    &:checked ~ .checkmark-expression {
+      @include checkmark-checked();
+    }
+
+    &:checked ~ .checkmark-category {
+      @include checkmark-checked();
+    }
+  }
+
+  .checkmark-category {
+    top: 15px;
+    left: 0;
+    height: 87px;
+    justify-content: space-around;
+    border-radius: 5px;
+    border: 2px solid $blue;
+  }
+
+  .no-answer {
+    width: 560px;
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+
+    @include media-breakpoint-down(lg) {
+      width: 50vw;
+    }
+
+    @include media-breakpoint-down(xs) {
+      width: 58vw;
+      height: 13vw;
+      font-size: 5vw;
+    }
+  }
+}
+
+.container-radio {
+  display: inline-block;
+  position: relative;
+  margin-left: 110px;
+  margin-bottom: 0px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &:nth-of-type(1) {
+    margin-left: 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    margin-left: 90px;
+  }
+
+  @include media-breakpoint-down(xs) {
+    margin-left: 13vw;
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+
+    &:checked ~ .checkmark {
+      @include checkmark-checked();
+    }
+
+    &:checked ~ .checkmark-expression {
+      @include checkmark-checked();
+    }
+
+    &:checked ~ .checkmark-category {
+      @include checkmark-checked();
+    }
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    height: 87px;
+    width: 87px;
+    justify-content: space-around;
+    border-radius: 5px;
+    border: 2px solid $blue;
+
+    @include media-breakpoint-down(sm) {
+      height: 75px;
+      width: 75px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      height: 12vw;
+      width: 12vw;
+      font-size: 0.8em;
+    }
+  }
+
+  .checkmark-expression, .checkmark-category {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    height: 87px;
+    justify-content: space-around;
+    border-radius: 5px;
+    border: 2px solid $blue;
+
+  }
+
+  .checkmark-expression {
+    width: 213px;
+
+    @include media-breakpoint-down(sm) {
+      height: 75px;
+      width: 180px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      height: 12vw;
+      width: 32vw;
+      font-size: 0.8em;
+    }
+  }
+
+  .checkmark-category {
+    width: 265px;
+
+    @include media-breakpoint-only(lg) {
+      height: 75px;
+      width: 250px;
+    }
+
+    @include media-breakpoint-down(md) {
+      height: 75px;
+      width: 190px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      height: 75px;
+      width: 180px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      height: 12vw;
+      width: 27vw;
+      font-size: 3vw;
+    }
+  }
+}
+
+.radio-expression {
+  margin-left: 235px;
+
+  @include media-breakpoint-down(sm) {
+    margin-left: 200px;
+  }
+
+  @include media-breakpoint-down(xs) {
+    margin-left: 35vw;
+  }
+}
+
+.radio-category {
+  margin-left: 285px;
+
+  &:nth-of-type(1) {
+    margin-left: 0px;
+
+    @include media-breakpoint-only(lg) {
+      margin-left: -15px;
+    }
+
+    @include media-breakpoint-down(md) {
+      margin-left: 20px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      margin-left: -5px;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    margin-left: 200px;
+  }
+
+  @include media-breakpoint-down(xs) {
+    margin-left: 29vw;
+
+    &:nth-of-type(1) {
+      margin-left: -5vw;
+    }
+  }
+}
+
+.navbar {
+  .navbar-nav {
+    .nav-item {
+      a {
+        color: $blue;
+
+        &:hover {
+          color: $blue-darker;
+          text-decoration: unset;
+        }
+      }
+    }
+
+    img {
+      border: 1px solid $light-gray;
+    }
+  }
+}
+
+.pagination {
+  margin: auto;
+}
+
+.form-confirm-email {
+  margin: 0 auto;
+}

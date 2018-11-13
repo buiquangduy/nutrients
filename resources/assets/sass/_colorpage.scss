@@ -1,0 +1,218 @@
+.color-page {
+  margin-top: 10%;
+
+  .wrapper-picker {
+    width: 100%;
+    text-align: center;
+    #color-picker {
+      position: relative;
+      display: inline-block;
+
+      svg {
+        margin: 0 auto;
+
+        .iro__slider {
+          display: none;
+          visibility: hidden;
+          pointer-events: none;
+        }
+
+        .iro__marker {
+          display: none;
+        }
+      }
+
+      .position-selected {
+        border-radius: 50%;
+        border: 1px solid $gray-600;
+        color: $gray-700;
+        background-color: $background-opacity;
+        position: absolute;
+        text-align: center;
+        transform: translate(-50%,-50%);
+        pointer-events: none;
+
+        @include media-breakpoint-between(xs, sm) {
+          width: 25px;
+          line-height: 25px;
+          font-size: 13px;
+        }
+        @include media-breakpoint-between(sm, md) {
+          width: 28px;
+          line-height: 26px;
+          font-size: 15px;
+        }
+        @include media-breakpoint-down(xs) {
+          width: 25px;
+          line-height: 23px;
+          font-size: 13px;
+        }
+        @include media-breakpoint-up(md) {
+          width: 28px;
+          line-height: 26px;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+  .color-list-component {
+    margin-top: -50px;
+    position: relative;
+  }
+  .color-list {
+    width: 75%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+
+    @include media-breakpoint-up(md) {
+      margin-top: 40px;
+    }
+    .position {
+      display: inline-block;
+      float: left;
+      border-radius: 50%;
+      border: 1px solid $gray-600;
+      text-align: center;
+      margin-left: 10px;
+
+      @include media-breakpoint-between(xs, sm) {
+        margin-top: 1.2%;
+        width: 25px;
+        height: 25px;
+        font-size: 13px;
+        padding: 2px;
+      }
+      @include media-breakpoint-between(sm, md) {
+        margin-top: 1%;
+        width: 28px;
+        height: 28px;
+        font-size: 15px;
+        padding: 2px;
+      }
+      @include media-breakpoint-down(xs) {
+        margin-top: 1.5%;
+        width: 25px;
+        line-height: 20px;
+        font-size: 13px;
+      }
+      @include media-breakpoint-up(md) {
+        margin-top: 1%;
+        width: 28px;
+        height: 28px;
+        font-size: 15px;
+        padding: 2px;
+      }
+    }
+
+    .color-bar {
+      display: inline-block;
+      width: 78%;
+      border: 1px solid $gray-500;
+      float: left;
+
+      @include media-breakpoint-up(lg) {
+        width: 55%;
+        height: 50px;
+        margin-left: 2%;
+        margin-right: 2%;
+      }
+      @include media-breakpoint-up(md) {
+        width: 62%;
+        height: 50px;
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+      @include media-breakpoint-down(md) {
+        height: 40px;
+        margin-left: 2%;
+        margin-right: 2%;
+      }
+      @include media-breakpoint-down(xs) {
+        width: 72%;
+        height: 35px;
+        margin-left: 0.8%;
+        margin-right: 0.5%;
+      }
+    }
+
+    .btn-delete-circle {
+      display: inline-block;
+      cursor: pointer;
+      border-radius: 50%;
+      border: 1px solid $gray-600;
+      color: $gray-600;
+      text-align: center;
+
+      @include media-breakpoint-between(xs, sm) {
+        margin-top: 1.2%;
+        width: 25px;
+        height: 25px;
+        font-size: 13px;
+        padding: 2px;
+      }
+      @include media-breakpoint-between(sm, md) {
+        margin-top: 1%;
+        width: 28px;
+        height: 28px;
+        font-size: 15px;
+        padding: 2px;
+      }
+      @include media-breakpoint-down(xs) {
+        margin-top: 1.5%;
+        width: 25px;
+        line-height: 20px;
+        font-size: 13px;
+      }
+      @include media-breakpoint-up(md) {
+        margin-top: 1%;
+        width: 28px;
+        height: 28px;
+        font-size: 15px;
+        padding: 2px;
+      }
+    }
+
+    .btn-next {
+      border: 2px solid $red;
+      background-color: $white;
+      color: $gray-900;
+      font-weight: 500;
+      font-size: 22px;
+
+      @include media-breakpoint-down(xs) {
+        border-radius: 10px;
+        font-size: 15px;
+        height: 45px;
+      }
+
+      @include media-breakpoint-between(xs, sm) {
+        border-radius: 10px;
+        font-size: 16px;
+        height: 55px;
+      }
+
+      @include media-breakpoint-between(sm, md) {
+        border-radius: 15px;
+        font-size: 18px;
+        height: 65px;
+      }
+
+      @include media-breakpoint-up(md) {
+        border-radius: 20px;
+        font-size: 20px;
+        height: 70px;
+      }
+
+      &:hover {
+        border-color: $blue-dark;
+        box-shadow: 1px 1px 8px 2px $light-gray;
+        transition: 0.5s;
+      }
+    }
+
+    .clear {
+      border: none;
+    }
+  }
+}
